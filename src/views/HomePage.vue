@@ -1,56 +1,103 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true">
+    <ion-header>
       <ion-toolbar>
-        <ion-title>Blank</ion-title>
+        <ion-title>Home</ion-title>
       </ion-toolbar>
     </ion-header>
 
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Blank</ion-title>
-        </ion-toolbar>
-      </ion-header>
+    <ion-content>
+        <ion-card class="Laadpaal-info">
+          <ion-card-header>
+            <ion-card-title>Laadpalen info</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label>
+                
+                <ion-card class="Laadpaal-status">
+                  <ion-card-header>
+                    <ion-card-title>Laadpaal 1</ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <p class="status-opladen">Status : Opladen</p>
+                  </ion-card-content>
+                </ion-card>
 
-      <div id="container">
-        <strong>Ready to create an app?</strong>
-        <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-      </div>
+                <ion-card class="Laadpaal-status">
+                  <ion-card-header>
+                    <ion-card-title>Laadpaal 2</ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <p class="status-vrij">Status : Vrij</p>
+                  </ion-card-content>
+                </ion-card>
+
+                <ion-card class="Laadpaal-status">
+                  <ion-card-header>
+                    <ion-card-title>Laadpaal 3</ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <p class="status-bezet">Status : Bezet</p>
+                  </ion-card-content>
+                </ion-card>
+
+                <ion-card class="Laadpaal-status">
+                  <ion-card-header>
+                    <ion-card-title>Laadpaal 4</ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <p class="status-vrij">Status : Vrij</p>
+                  </ion-card-content>
+                </ion-card>
+                
+              </ion-label>
+            </ion-item>
+          </ion-card-content>    
+        </ion-card>
     </ion-content>
   </ion-page>
 </template>
 
 <script setup>
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import { IonContent, IonHeader, IonMenu, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 </script>
 
 <style scoped>
-#container {
+/* ion card klein maken en naar links zetten */
+/* alleen laten zien op desktop */
+.Laadpaal-info {
+  width: 30%;
   text-align: center;
-  
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+}
+/* p moet kleiner zijn */
+p{
+  font-size: 15px;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+/* laadpaalstatus moet naast elkaar komen en kleiner gemaakt worden */
+.Laadpaal-status {
+  width: 40%;
+  text-align: center;
+  display: inline-block;
+  background-color: #2a2727;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  
-  color: #8c8c8c;
-  
-  margin: 0;
+@-webkit-keyframes charging {
+  0% {color: #39FF14;}
+  25% {color: #D0F0C0;}
+  50% {color: #98FB98;}
+  100% {color: #39FF14}
 }
 
-#container a {
-  text-decoration: none;
+.status-opladen {
+  animation: charging 5s infinite;
+} 
+.status-vrij {
+  color: green;
 }
+.status-bezet {
+  color: red;
+}
+
 </style>
